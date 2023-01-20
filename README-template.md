@@ -115,3 +115,5 @@ This is where you can give a hat tip to anyone who helped you out on this projec
 
 
 https://stackoverflow.com/questions/37644265/correct-path-for-img-on-react-js
+
+https://bobbyhadz.com/blog/react-center-div
