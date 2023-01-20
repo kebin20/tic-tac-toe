@@ -83,8 +83,18 @@
   box-shadow: inset 0px -8px 0px #cc8b13;
 }
 
+.vscpu:hover {
+  background: #ffc860;
+  box-shadow: inset 0px -8px 0px #cc8b13;
+}
+
 .vsplayer {
   background: #31c3bd;
   box-shadow: inset 0px -8px 0px #118c87;
   margin-top: 1em;
+}
+
+.vsplayer:hover {
+  background: #65e9e4;
+  box-shadow: inset 0px -8px 0px #118c87;
 }

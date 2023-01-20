@@ -4,7 +4,7 @@ import NewGameMenu from "./components/NewGameMenu";
 import "./App.css";
 
 function App() {
-  const [showMenu, setShowMenu] = React.useState(false);
+  const [showMenu, setShowMenu] = React.useState(true);
 
   function displayMenuHandler() {
     setShowMenu(!showMenu);
