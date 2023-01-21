@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import "./NewGameMenu.css";
 import xicon from "./assets/icon-x.svg";
@@ -19,8 +20,15 @@ function NewGameMenu(props) {
         <p className="pick-mark-container__note">Remember: x goes first</p>
       </div>
       <div className="new-game-btn-container">
-        <button className="new-game-btn vscpu">New Game (vs cpu)</button>
-        <button className="new-game-btn vsplayer">New Game (vs player )</button>
+        <button className="new-game-btn vscpu" disabled>
+          New Game (vs cpu)
+        </button>
+        <button
+          className="new-game-btn vsplayer"
+          onClick={props.onDisplayMenuHandler}
+        >
+          New Game (vs player )
+        </button>
       </div>
     </div>
   );
