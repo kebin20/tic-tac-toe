@@ -1,21 +1,23 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import "./NewGameMenu.css";
-import xicon from "./assets/icon-x.svg";
-import oicon from "./assets/icon-o.svg";
+import grayXIcon from "./assets/icon-x-gray.svg";
+import darkOIcon from "./assets/icon-o-dark.svg";
+import logo from "./assets/logo.svg";
 
 function NewGameMenu(props) {
   return (
     <div className="welcome-menu-container">
-      <div className="logo-container">
-        <img src={xicon} alt="x icon" className="logo x-icon" />
-        <img src={oicon} alt="o icon" className="logo o-icon" />
-      </div>
+      <img src={logo} alt="" className="logo-menu" />
       <div className="pick-mark-container">
         <p className="pick-mark-container__pick-player">Pick player 1 mark</p>
         <div className="pick-xo-btn-container">
-          <button className="pick-x-btn">X</button>
-          <button className="pick-o-btn">O</button>
+          <button className="pick-x-btn">
+            <img src={grayXIcon} alt="gray X icon" className="xo-icons-menu" />
+          </button>
+          <button className="pick-o-btn">
+            <img src={darkOIcon} alt="dark O icon" className="xo-icons-menu" />
+          </button>
         </div>
         <p className="pick-mark-container__note">Remember: x goes first</p>
       </div>

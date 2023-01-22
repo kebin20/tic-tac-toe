@@ -6,13 +6,8 @@
   height: 500px;
 }
 
-.logo {
-  width: 2em;
-}
-
-.logo-container {
-  display: flex;
-  gap: 0.5em;
+.logo-menu {
+  width: auto;
   padding: 2em;
 }
 
@@ -39,6 +34,11 @@
   opacity: 0.5;
 }
 
+.xo-icons-menu {
+  width: 50%;
+  margin: auto;
+}
+
 .pick-xo-btn-container {
   background: #1a2a33;
   padding: 0.5em;
@@ -49,7 +49,7 @@
 .pick-x-btn {
   font-weight: bold;
   font-size: 2rem;
-  padding: 0.2em 2.6em;
+  padding: 0.4em 2.5em;
 }
 
 .pick-x-btn {
