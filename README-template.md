@@ -117,3 +117,10 @@ This is where you can give a hat tip to anyone who helped you out on this projec
 https://stackoverflow.com/questions/37644265/correct-path-for-img-on-react-js
 
 https://bobbyhadz.com/blog/react-center-div
+
+
+I had an interesting issue where the calculateWinner function didn't work due to an issue where the calculateWinner function were expecting the squares array to contain string ("X" or "O") and in my handleClick function, I was inserting React elements (<img> tags) into the boardCopy array instead which of course didn't work. 
+
+The solution for this was to include a conditional logic within the square component where if the value of the square equals to the string "X", then render the Img element that contains the image of the X and vice versa for the O image. Otherwise, just return null. 
+
+useEffect hook was useful here to keep track of all the scores as I needed the scores to rerender upon finishing the game (which is when the state changes)

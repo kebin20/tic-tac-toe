@@ -1,44 +1,56 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { calculateWinner } from "../helper";
-import xIcon from "./assets/icon-x.svg";
-import oIcon from "./assets/icon-o.svg";
+/* assets */
 import grayXIcon from "./assets/icon-x-gray.svg";
 import grayOIcon from "./assets/icon-o-gray.svg";
 import logo from "./assets/logo.svg";
 import resetBtn from "./assets/icon-restart.svg";
+/* components */
 import Board from "./Board";
+import ScoreDisplay from "./ScoreDisplay";
 import "./Game.css";
 
 function Game(props) {
-  const [board, setBoard] = useState(Array(9).fill(null));
+  const [squareValue, setSquareValue] = useState(Array(9).fill(null));
   const [xIsNext, setXisNext] = useState(true);
-  const winner = calculateWinner(board);
+  const [xScore, setXScore] = useState(0);
+  const [tieScore, setTieScore] = useState(0);
+  const [oScore, setOScore] = useState(0);
+
+  const winner = calculateWinner(squareValue);
 
   function handleClick(i) {
-    const boardCopy = [...board];
+    const squareValueCopy = [...squareValue];
     // If user click a filled in square or if game is won, return
-    if (winner || boardCopy[i]) return;
+    if (winner || squareValueCopy[i]) return;
     // Insert an O or an X into the square
-    boardCopy[i] = xIsNext ? (
-      <img src={xIcon} alt="X icon" />
-    ) : (
-      <img src={oIcon} alt="O icon" />
-    );
-    // boardCopy[i] = xIsNext ? "X" : "O";
-    setBoard(boardCopy);
+    squareValueCopy[i] = xIsNext ? "X" : "O";
+    setSquareValue(squareValueCopy);
     setXisNext(!xIsNext);
   }
 
   function resetBoard() {
     return (
       <button
-        onClick={() => setBoard(Array(9).fill(null))}
+        onClick={() => setSquareValue(Array(9).fill(null))}
         className="reset-button"
       >
         <img src={resetBtn} alt="reset button" />
       </button>
     );
   }
+
+  useEffect(() => {
+    if (winner) {
+      if (winner === "X") {
+        setXScore((score) => score + 1);
+      } else if (winner === "O") {
+        setOScore((score) => score + 1);
+      }
+    } else if (winner === null && !squareValue.includes(null)) {
+      setTieScore((score) => score + 1);
+    }
+  }, [winner, squareValue]);
 
   return (
     <>
@@ -59,7 +71,8 @@ function Game(props) {
           </div>
           {resetBoard()}
         </header>
-        <Board squares={board} onClick={handleClick} />
+        <Board squares={squareValue} onClick={handleClick} />
+        <ScoreDisplay xScore={xScore} tieScore={tieScore} oScore={oScore} />
       </div>
     </>
   );
