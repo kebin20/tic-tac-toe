@@ -3,16 +3,16 @@ import React from "react";
 import "./Square.css";
 import xIcon from "./assets/icon-x.svg";
 import oIcon from "./assets/icon-o.svg";
+// import xOutline from "./assets/icon-x-outline"
+// import oOutline from "./assets/icon-o-outline"
 
-function Square({ value, onClick, winningCombination }) {
+function Square({ value, onClick, winningCombination, index }) {
   return (
     <button
       className={
         winningCombination
-          ? winningCombination.indexOf("X") !== -1
-            ? "winning-x-row"
-            : winningCombination.indexOf("O") !== -1
-            ? "winning-o-row"
+          ? winningCombination.includes(index)
+            ? `${value === "X" ? "winning-x-row" : "winning-o-row"}`
             : "square"
           : "square"
       }

@@ -12,6 +12,7 @@ function Board({ squares, onClick, winningCombination }) {
           winningCombination={winningCombination}
           value={square}
           onClick={() => onClick(i)}
+          index={i}
         />
       ))}
     </div>
