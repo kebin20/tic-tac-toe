@@ -35,10 +35,17 @@ function Game(props) {
     setSquareValue(Array(9).fill(null));
   }
 
-  function resetBoardButton() {
+  function resetGameButton() {
     return (
       <button
-        onClick={() => setSquareValue(Array(9).fill(null))}
+        onClick={() =>
+          setSquareValue(
+            Array(9).fill(null),
+            setXScore(0),
+            setOScore(0),
+            setTieScore(0)
+          )
+        }
         className="reset-button"
       >
         <img src={resetBtn} alt="reset button" />
@@ -79,7 +86,7 @@ function Game(props) {
               Turn
             </p>
           </div>
-          {resetBoardButton()}
+          {resetGameButton()}
         </header>
         <Board squares={squareValue} onClick={handleClick} />
         <ScoreDisplay xScore={xScore} tieScore={tieScore} oScore={oScore} />
