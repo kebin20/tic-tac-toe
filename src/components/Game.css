@@ -34,6 +34,11 @@ header {
   border-radius: 10px;
 }
 
+.reset-button:hover {
+  background: #dbe8ed;
+  box-shadow: inset 0px -4px 0px #6b8997;
+}
+
 .xo-icons {
   width: auto;
 }

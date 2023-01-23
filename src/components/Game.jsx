@@ -8,6 +8,7 @@ import resetBtn from "./assets/icon-restart.svg";
 /* components */
 import Board from "./Board";
 import ScoreDisplay from "./ScoreDisplay";
+import WinnerModal from "./WinnerModal";
 import "./Game.css";
 
 function Game(props) {
@@ -71,6 +72,7 @@ function Game(props) {
           </div>
           {resetBoard()}
         </header>
+        <WinnerModal />
         <Board squares={squareValue} onClick={handleClick} />
         <ScoreDisplay xScore={xScore} tieScore={tieScore} oScore={oScore} />
       </div>
