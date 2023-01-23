@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import { calculateWinner } from "../helper";
 /* assets */
@@ -31,6 +32,10 @@ function Game(props) {
   }
 
   function resetBoard() {
+    setSquareValue(Array(9).fill(null));
+  }
+
+  function resetBoardButton() {
     return (
       <button
         onClick={() => setSquareValue(Array(9).fill(null))}
@@ -61,7 +66,11 @@ function Game(props) {
           <div className="turn-display-container">
             <p className="turn-display">
               {winner ? (
-                `Winner: ${winner}`
+                <WinnerModal
+                  onResetBoard={resetBoard}
+                  winner={winner}
+                  onShowMenu={props.onShowMenu}
+                />
               ) : xIsNext ? (
                 <img src={grayXIcon} alt="gray X icon" className="xo-icons" />
               ) : (
@@ -70,9 +79,8 @@ function Game(props) {
               Turn
             </p>
           </div>
-          {resetBoard()}
+          {resetBoardButton()}
         </header>
-        <WinnerModal />
         <Board squares={squareValue} onClick={handleClick} />
         <ScoreDisplay xScore={xScore} tieScore={tieScore} oScore={oScore} />
       </div>

@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="centered-container">
       {showMenu && <NewGameMenu onDisplayMenuHandler={displayMenuHandler} />}
-      {!showMenu && <Game />}
+      {!showMenu && <Game onShowMenu={setShowMenu} />}
     </div>
   );
 }

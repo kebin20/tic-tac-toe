@@ -44,8 +44,14 @@
   color: white;
 }
 
-.winner-icon-message {
+.winner-o-icon-message {
   color: #f2b137;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.winner-x-icon-message {
+  color: #31c3bd;
   font-size: 2.5rem;
   font-weight: 700;
 }
