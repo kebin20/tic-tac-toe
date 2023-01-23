@@ -19,7 +19,7 @@ function Game(props) {
   const [tieScore, setTieScore] = useState(0);
   const [oScore, setOScore] = useState(0);
 
-  const winner = calculateWinner(squareValue);
+  const { winner, winningCombination } = calculateWinner(squareValue);
 
   function handleClick(i) {
     const squareValueCopy = [...squareValue];
@@ -71,7 +71,7 @@ function Game(props) {
         <header>
           <img src={logo} alt="picture of tic tac toe logo" className="logo" />
           <div className="turn-display-container">
-            <p className="turn-display">
+            <div className="turn-display">
               {winner ? (
                 <WinnerModal
                   onResetBoard={resetBoard}
@@ -84,11 +84,15 @@ function Game(props) {
                 <img src={grayOIcon} alt="gray O icon" className="xo-icons" />
               )}{" "}
               Turn
-            </p>
+            </div>
           </div>
           {resetGameButton()}
         </header>
-        <Board squares={squareValue} onClick={handleClick} />
+        <Board
+          winningCombination={winningCombination}
+          squares={squareValue}
+          onClick={handleClick}
+        />
         <ScoreDisplay xScore={xScore} tieScore={tieScore} oScore={oScore} />
       </div>
     </>

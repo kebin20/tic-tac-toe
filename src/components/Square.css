@@ -7,3 +7,13 @@
   border-radius: 15px;
   border: none;
 }
+
+.winning-x-row {
+  background-color: #31c3bd;
+  background: url(./assets/icon-x-outline.svg);
+}
+
+.winning-0-row {
+  background-color: #f2b137;
+  background: url(./assets/icon-o-outline.svg);
+}
