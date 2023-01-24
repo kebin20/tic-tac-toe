@@ -12,18 +12,26 @@ function WinnerModal(props) {
         <div className="show-winner-icon-container">
           {props.winner === "X" ? (
             <img src={xIcon} alt="" className="winner-icon" />
-          ) : (
+          ) : props.winner === "O" ? (
             <img src={oIcon} alt="" className="winner-icon" />
+          ) : props.winner === null && !props.squareValue.includes(null) ? (
+            <p className="tied-message">round tied</p>
+          ) : (
+            {}
           )}
-          <p
-            className={
-              props.winner === "X"
-                ? "winner-x-icon-message"
-                : "winner-o-icon-message"
-            }
-          >
-            takes the round
-          </p>
+          {props.winner === null && !props.squareValue.includes(null) ? (
+            <p className="tied-message">round tied</p>
+          ) : (
+            <p
+              className={
+                props.winner === "X"
+                  ? "winner-x-icon-message"
+                  : "winner-o-icon-message"
+              }
+            >
+              takes the round
+            </p>
+          )}
         </div>
         <div className="winner-modal-button-container">
           <button className="quit-button" onClick={props.onShowMenu}>

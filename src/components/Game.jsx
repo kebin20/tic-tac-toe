@@ -21,6 +21,8 @@ function Game(props) {
 
   const { winner, winningCombination } = calculateWinner(squareValue);
 
+  console.log(winner);
+
   function handleClick(i) {
     const squareValueCopy = [...squareValue];
     // If user click a filled in square or if game is won, return
@@ -77,6 +79,7 @@ function Game(props) {
                   onResetBoard={resetBoard}
                   winner={winner}
                   onShowMenu={props.onShowMenu}
+                  squareValue={squareValue}
                 />
               ) : xIsNext ? (
                 <img src={grayXIcon} alt="gray X icon" className="xo-icons" />

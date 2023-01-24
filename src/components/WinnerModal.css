@@ -56,6 +56,19 @@
   font-weight: 700;
 }
 
+.tied-message {
+font-family: 'Outfit';
+font-style: normal;
+font-weight: 700;
+font-size: 40px;
+line-height: 50px;
+text-align: center;
+letter-spacing: 2.5px;
+text-transform: uppercase;
+color: #A8BFC9;
+
+}
+
 .quit-button {
   padding: 1em;
   background: #a8bfc9;
