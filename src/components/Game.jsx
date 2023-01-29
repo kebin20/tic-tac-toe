@@ -21,7 +21,8 @@ function Game(props) {
 
   const { winner, winningCombination } = calculateWinner(squareValue);
 
-  console.log(winner);
+  // console.log(winner);
+  console.log(squareValue)
 
   function handleClick(i) {
     const squareValueCopy = [...squareValue];
@@ -74,7 +75,7 @@ function Game(props) {
           <img src={logo} alt="picture of tic tac toe logo" className="logo" />
           <div className="turn-display-container">
             <div className="turn-display">
-              {winner ? (
+              {winner  || winner === null && !squareValue.includes(null) ? (
                 <WinnerModal
                   onResetBoard={resetBoard}
                   winner={winner}
