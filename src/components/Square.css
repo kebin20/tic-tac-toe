@@ -10,16 +10,8 @@
 
 .winning-x-row {
   background-color: #31c3bd;
-  opacity: 0.5;
-  border-radius: 15px;
-  border: none;
-  /* background: url(./assets/icon-x-outline.svg); */
 }
 
 .winning-o-row {
   background-color: #f2b137;
-  border-radius: 15px;
-  opacity: 0.5;
-  border: none;
-  /* background: url(./assets/icon-o-outline.svg); */
 }

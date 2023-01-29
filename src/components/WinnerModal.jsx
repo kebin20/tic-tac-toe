@@ -15,7 +15,7 @@ function WinnerModal(props) {
           ) : props.winner === "O" ? (
             <img src={oIcon} alt="" className="winner-icon" />
           ) : props.winner === null && !props.squareValue.includes(null) ? (
-            <p></p>
+            ""
           ) : (
             {}
           )}

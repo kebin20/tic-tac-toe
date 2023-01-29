@@ -94,6 +94,7 @@ function Game(props) {
         </header>
         <Board
           winningCombination={winningCombination}
+          winner={winner}
           squares={squareValue}
           onClick={handleClick}
         />

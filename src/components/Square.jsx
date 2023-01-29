@@ -3,22 +3,30 @@ import React from "react";
 import "./Square.css";
 import xIcon from "./assets/icon-x.svg";
 import oIcon from "./assets/icon-o.svg";
-// import xOutline from "./assets/icon-x-outline"
-// import oOutline from "./assets/icon-o-outline"
+import xTransparent from "./assets/icon-x-transparent.svg";
+import oTransparent from "./assets/icon-o-transparent.svg";
 
-function Square({ value, onClick, winningCombination, index }) {
+function Square({ value, onClick, winningCombination, index, winner }) {
   return (
     <button
       className={
         winningCombination
           ? winningCombination.includes(index)
-            ? `${value === "X" ? "winning-x-row" : "winning-o-row"}`
+            ? `${
+                value === "X" ? "winning-x-row square" : "winning-o-row square"
+              }`
             : "square"
           : "square"
       }
       onClick={onClick}
     >
-      {value === "X" ? (
+      {winner && winningCombination.includes(index) ? (
+        value === "X" ? (
+          <img src={xTransparent} alt="X transparent icon" />
+        ) : (
+          <img src={oTransparent} alt="O transparent icon" />
+        )
+      ) : value === "X" ? (
         <img src={xIcon} alt="X icon" />
       ) : value === "O" ? (
         <img src={oIcon} alt="O icon" />

@@ -6,6 +6,13 @@ import darkOIcon from "./assets/icon-o-dark.svg";
 import logo from "./assets/logo.svg";
 
 function NewGameMenu(props) {
+// const [playerOneIcon, setPlayerOneIcon] = useState("")
+// const {playerTwoIcon, setPlayerTwoIcon} = useState("")
+
+// function choosePlayerIcon() {
+
+// }
+
   return (
     <div className="welcome-menu-container">
       <img src={logo} alt="" className="logo-menu" />
