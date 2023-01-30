@@ -31,7 +31,13 @@ function App() {
           onSetPlayerTwoIcon={setPlayerTwoIcon}
         />
       )}
-      {!showMenu && <Game onShowMenu={setShowMenu} />}
+      {!showMenu && (
+        <Game
+          onShowMenu={setShowMenu}
+          playerOne={playerOne}
+          playerTwo={playerTwo}
+        />
+      )}
     </div>
   );
 }
