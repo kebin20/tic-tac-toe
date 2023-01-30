@@ -28,7 +28,6 @@ function Game(props) {
     // If user click a filled in square or if game is won, return
     if (winner || squareValueCopy[i]) return;
     // Insert an O or an X into the square depending on the player
-
     let value = "O";
     if (xIsNext) {
       if (props.playerOne === "X" || props.playerTwo === "X") {
@@ -108,6 +107,9 @@ function Game(props) {
           winner={winner}
           squares={squareValue}
           onClick={handleClick}
+          xIsNext={xIsNext}
+          playerOne={props.playerOne}
+          playerTwo={props.playerTwo}
         />
         <ScoreDisplay
           xScore={xScore}

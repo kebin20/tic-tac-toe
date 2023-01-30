@@ -6,19 +6,38 @@ import oIcon from "./assets/icon-o.svg";
 import xTransparent from "./assets/icon-x-transparent.svg";
 import oTransparent from "./assets/icon-o-transparent.svg";
 
-function Square({ value, onClick, winningCombination, index, winner }) {
+function Square({
+  value,
+  onClick,
+  winningCombination,
+  index,
+  winner,
+  playerOne,
+  playerTwo,
+  xIsNext,
+}) {
+  let squareClass = "square-o-turn";
+
+  if (winningCombination) {
+    if (winningCombination.includes(index)) {
+      if (value === "X") {
+        squareClass = "winning-x-row square";
+      } else {
+        squareClass = "winning-o-row square";
+      }
+    }
+  } else if (xIsNext) {
+    if (playerOne === "X" || playerTwo === "X") {
+      squareClass = "square-x-turn";
+    } else if (playerOne === "O" || playerTwo === "O") {
+      squareClass = "square-o-turn";
+    }
+  }
+
   return (
     <button
-      className={
-        winningCombination
-          ? winningCombination.includes(index)
-            ? `${
-                value === "X" ? "winning-x-row square" : "winning-o-row square"
-              }`
-            : "square"
-          : "square"
-      }
-      onClick={onClick}
+      className={value ? "square" : squareClass}
+      onClick={value ? null : onClick}
     >
       {winner && winningCombination.includes(index) ? (
         value === "X" ? (
