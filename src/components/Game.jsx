@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
-import { calculateWinner } from "../helper";
+import React, { useState, useEffect } from 'react';
+import { calculateWinner } from '../helper';
 /* assets */
-import grayXIcon from "./assets/icon-x-gray.svg";
-import grayOIcon from "./assets/icon-o-gray.svg";
-import logo from "./assets/logo.svg";
-import resetBtn from "./assets/icon-restart.svg";
+import grayXIcon from './assets/icon-x-gray.svg';
+import grayOIcon from './assets/icon-o-gray.svg';
+import logo from './assets/logo.svg';
+import resetBtn from './assets/icon-restart.svg';
 /* components */
-import Board from "./Board";
-import ScoreDisplay from "./ScoreDisplay";
-import WinnerModal from "./WinnerModal";
-import "./Game.css";
+import Board from './Board';
+import ScoreDisplay from './ScoreDisplay';
+import WinnerModal from './WinnerModal';
+import './Game.css';
 
 function Game(props) {
   const [squareValue, setSquareValue] = useState(Array(9).fill(null));
@@ -21,14 +21,14 @@ function Game(props) {
 
   const { winner, winningCombination } = calculateWinner(squareValue);
 
-  console.log(squareValue)
+  console.log(squareValue);
 
   function handleClick(i) {
     const squareValueCopy = [...squareValue];
     // If user click a filled in square or if game is won, return
     if (winner || squareValueCopy[i]) return;
     // Insert an O or an X into the square
-    squareValueCopy[i] = xIsNext ? "X" : "O";
+    squareValueCopy[i] = xIsNext ? props.playerOne : props.playerTwo;
     setSquareValue(squareValueCopy);
     setXisNext(!xIsNext);
   }
@@ -57,9 +57,9 @@ function Game(props) {
 
   useEffect(() => {
     if (winner) {
-      if (winner === "X") {
+      if (winner === 'X') {
         setXScore((score) => score + 1);
-      } else if (winner === "O") {
+      } else if (winner === 'O') {
         setOScore((score) => score + 1);
       }
     } else if (winner === null && !squareValue.includes(null)) {
@@ -74,18 +74,20 @@ function Game(props) {
           <img src={logo} alt="picture of tic tac toe logo" className="logo" />
           <div className="turn-display-container">
             <div className="turn-display">
-              {winner  || winner === null && !squareValue.includes(null) ? (
+              {winner || (winner === null && !squareValue.includes(null)) ? (
                 <WinnerModal
                   onResetBoard={resetBoard}
                   winner={winner}
                   onShowMenu={props.onShowMenu}
                   squareValue={squareValue}
+                  playerOne={props.playerOne}
+                  playerTwo={props.playerTwo}
                 />
               ) : xIsNext ? (
                 <img src={grayXIcon} alt="gray X icon" className="xo-icons" />
               ) : (
                 <img src={grayOIcon} alt="gray O icon" className="xo-icons" />
-              )}{" "}
+              )}{' '}
               Turn
             </div>
           </div>
@@ -97,7 +99,13 @@ function Game(props) {
           squares={squareValue}
           onClick={handleClick}
         />
-        <ScoreDisplay xScore={xScore} tieScore={tieScore} oScore={oScore} />
+        <ScoreDisplay
+          xScore={xScore}
+          tieScore={tieScore}
+          oScore={oScore}
+          playerOne={props.playerOne}
+          playerTwo={props.playerTwo}
+        />
       </div>
     </>
   );

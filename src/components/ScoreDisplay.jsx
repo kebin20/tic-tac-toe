@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import "./ScoreDisplay.css";
+import React from 'react';
+import './ScoreDisplay.css';
 
 function ScoreDisplay(props) {
   return (
     <div className="score-display">
       <div className="x-score score">
-        <p>X (P2)</p>
+        <p>{props.playerOne === 'X' ? 'X (P1)' : 'X (P2)'}</p>
         <p className="score-number">{props.xScore}</p>
       </div>
       <div className="tie-score score">
@@ -14,7 +14,7 @@ function ScoreDisplay(props) {
         <p className="score-number">{props.tieScore}</p>
       </div>
       <div className="o-score score">
-        <p>O (P1)</p>
+        <p>{props.playerOne === 'O' ? 'O (P1)' : 'O (P2)'}</p>
         <p className="score-number">{props.oScore}</p>
       </div>
     </div>
