@@ -112,3 +112,9 @@
   background: #65e9e4;
   box-shadow: inset 0px -8px 0px #118c87;
 }
+
+@media (max-width: 420px) {
+  .welcome-menu-container {
+    width: 85%;
+  }
+}
