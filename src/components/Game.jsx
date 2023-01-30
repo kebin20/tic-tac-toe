@@ -27,8 +27,18 @@ function Game(props) {
     const squareValueCopy = [...squareValue];
     // If user click a filled in square or if game is won, return
     if (winner || squareValueCopy[i]) return;
-    // Insert an O or an X into the square
-    squareValueCopy[i] = xIsNext ? props.playerOne : props.playerTwo;
+    // Insert an O or an X into the square depending on the player
+
+    let value = "O";
+    if (xIsNext) {
+      if (props.playerOne === "X" || props.playerTwo === "X") {
+        value = "X";
+      } else if (props.playerOne === "O" || props.playerTwo === "O") {
+        value = "O";
+      }
+    }
+
+    squareValueCopy[i] = value;
     setSquareValue(squareValueCopy);
     setXisNext(!xIsNext);
   }
