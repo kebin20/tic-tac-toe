@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
-import './NewGameMenu.css';
-import grayXIcon from './assets/icon-x-gray.svg';
-import darkOIcon from './assets/icon-o-dark.svg';
-import logo from './assets/logo.svg';
+import React, { useState } from "react";
+import "./NewGameMenu.css";
+import grayXIcon from "./assets/icon-x-gray.svg";
+import darkOIcon from "./assets/icon-o-dark.svg";
+import logo from "./assets/logo.svg";
 
 function NewGameMenu(props) {
   const [disable, setDisable] = useState(false);
@@ -15,22 +15,22 @@ function NewGameMenu(props) {
         <p className="pick-mark-container__pick-player">Pick player 1 mark</p>
         <div className="pick-xo-btn-container">
           <button
-            className={disable ? 'disabled' : 'pick-x-btn'}
-            disable={disable}
+            className={disable ? "disabled" : "pick-x-btn"}
+            disabled={disable}
             onClick={() => {
-              props.onSetPlayerOneIcon('X');
-              props.onSetPlayerTwoIcon('O');
+              props.onSetPlayerOneIcon("X");
+              props.onSetPlayerTwoIcon("O");
               setDisable(true);
             }}
           >
             <img src={grayXIcon} alt="gray X icon" className="xo-icons-menu" />
           </button>
           <button
-            className={disable ? 'disabled' : 'pick-o-btn'}
-            disable={disable}
+            className={disable ? "disabled" : "pick-o-btn"}
+            disabled={disable}
             onClick={() => {
-              props.onSetPlayerOneIcon('O');
-              props.onSetPlayerTwoIcon('X');
+              props.onSetPlayerOneIcon("O");
+              props.onSetPlayerTwoIcon("X");
               setDisable(true);
             }}
           >
@@ -52,7 +52,7 @@ function NewGameMenu(props) {
         </button>
         <button
           className="new-game-btn vsplayer"
-          disable={disable}
+          disabled={disable}
           onClick={props.onDisplayMenuHandler}
         >
           New Game (vs player )

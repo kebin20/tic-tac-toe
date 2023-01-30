@@ -73,8 +73,8 @@
 }
 
 .disabled {
-  background-color: black;
-  cursor:not-allowed;
+  background-color: #a8bfc90d;
+  cursor: not-allowed;
   font-size: 2rem;
   padding: 0.4em 2.5em;
   border-radius: 10px;
