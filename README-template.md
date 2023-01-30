@@ -124,3 +124,5 @@ I had an interesting issue where the calculateWinner function didn't work due to
 The solution for this was to include a conditional logic within the square component where if the value of the square equals to the string "X", then render the Img element that contains the image of the X and vice versa for the O image. Otherwise, just return null. 
 
 useEffect hook was useful here to keep track of all the scores as I needed the scores to rerender upon finishing the game (which is when the state changes)
+
+https://sebhastian.com/react-disable-button/

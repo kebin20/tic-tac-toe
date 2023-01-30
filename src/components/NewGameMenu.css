@@ -47,21 +47,19 @@
 
 .pick-o-btn,
 .pick-x-btn {
-  font-weight: bold;
+  border-radius: 10px;
   font-size: 2rem;
   padding: 0.4em 2.5em;
 }
 
 .pick-x-btn {
   background: transparent;
-  border-radius: 10px;
   border: none;
   color: #a8bfc9;
 }
 
 .pick-o-btn {
   background-color: #a8bfc9;
-  border-radius: 10px;
   border: none;
   color: #1a2a33;
 }
@@ -72,6 +70,14 @@
 
 .pick-o-btn:hover {
   background-color: #8dadbb;
+}
+
+.disabled {
+  background-color: black;
+  cursor:not-allowed;
+  font-size: 2rem;
+  padding: 0.4em 2.5em;
+  border-radius: 10px;
 }
 
 .new-game-btn-container {

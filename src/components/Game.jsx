@@ -21,7 +21,6 @@ function Game(props) {
 
   const { winner, winningCombination } = calculateWinner(squareValue);
 
-  // console.log(winner);
   console.log(squareValue)
 
   function handleClick(i) {

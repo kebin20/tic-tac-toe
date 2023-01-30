@@ -29,6 +29,8 @@ function App() {
           onDisplayMenuHandler={displayMenuHandler}
           onSetPlayerOneIcon={setPlayerOneIcon}
           onSetPlayerTwoIcon={setPlayerTwoIcon}
+          playerOne={playerOne}
+          playerTwo={playerTwo}
         />
       )}
       {!showMenu && (
