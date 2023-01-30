@@ -1,28 +1,33 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import "./NewGameMenu.css";
-import grayXIcon from "./assets/icon-x-gray.svg";
-import darkOIcon from "./assets/icon-o-dark.svg";
-import logo from "./assets/logo.svg";
+import React from 'react';
+import './NewGameMenu.css';
+import grayXIcon from './assets/icon-x-gray.svg';
+import darkOIcon from './assets/icon-o-dark.svg';
+import logo from './assets/logo.svg';
 
 function NewGameMenu(props) {
-// const [playerOneIcon, setPlayerOneIcon] = useState("")
-// const {playerTwoIcon, setPlayerTwoIcon} = useState("")
-
-// function choosePlayerIcon() {
-
-// }
-
   return (
     <div className="welcome-menu-container">
       <img src={logo} alt="" className="logo-menu" />
       <div className="pick-mark-container">
         <p className="pick-mark-container__pick-player">Pick player 1 mark</p>
         <div className="pick-xo-btn-container">
-          <button className="pick-x-btn">
+          <button
+            className="pick-x-btn"
+            onClick={() => {
+              props.onSetPlayerOneIcon('X');
+              props.onSetPlayerTwoIcon('O');
+            }}
+          >
             <img src={grayXIcon} alt="gray X icon" className="xo-icons-menu" />
           </button>
-          <button className="pick-o-btn">
+          <button
+            className="pick-o-btn"
+            onClick={() => {
+              props.onSetPlayerOneIcon('O');
+              props.onSetPlayerTwoIcon('X');
+            }}
+          >
             <img src={darkOIcon} alt="dark O icon" className="xo-icons-menu" />
           </button>
         </div>

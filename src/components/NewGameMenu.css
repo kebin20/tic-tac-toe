@@ -66,6 +66,14 @@
   color: #1a2a33;
 }
 
+.pick-x-btn:hover {
+  background-color: #a8bfc90d;
+}
+
+.pick-o-btn:hover {
+  background-color: #8dadbb;
+}
+
 .new-game-btn-container {
   width: 100%;
   padding-top: 2em;
