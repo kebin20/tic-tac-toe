@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
-import { calculateWinner } from '../helper';
+import React, { useState, useEffect } from "react";
+import { calculateWinner } from "../helper";
 /* assets */
-import grayXIcon from './assets/icon-x-gray.svg';
-import grayOIcon from './assets/icon-o-gray.svg';
-import logo from './assets/logo.svg';
-import resetBtn from './assets/icon-restart.svg';
+import grayXIcon from "./assets/icon-x-gray.svg";
+import grayOIcon from "./assets/icon-o-gray.svg";
+import logo from "./assets/logo.svg";
+import resetBtn from "./assets/icon-restart.svg";
 /* components */
-import Board from './Board';
-import ScoreDisplay from './ScoreDisplay';
-import WinnerModal from './WinnerModal';
-import './Game.css';
+import Board from "./Board";
+import ScoreDisplay from "./ScoreDisplay";
+import WinnerModal from "./WinnerModal";
+import "./Game.css";
 
 function Game(props) {
   const [squareValue, setSquareValue] = useState(Array(9).fill(null));
@@ -57,9 +57,9 @@ function Game(props) {
 
   useEffect(() => {
     if (winner) {
-      if (winner === 'X') {
+      if (winner === "X") {
         setXScore((score) => score + 1);
-      } else if (winner === 'O') {
+      } else if (winner === "O") {
         setOScore((score) => score + 1);
       }
     } else if (winner === null && !squareValue.includes(null)) {
@@ -87,7 +87,7 @@ function Game(props) {
                 <img src={grayXIcon} alt="gray X icon" className="xo-icons" />
               ) : (
                 <img src={grayOIcon} alt="gray O icon" className="xo-icons" />
-              )}{' '}
+              )}{" "}
               Turn
             </div>
           </div>

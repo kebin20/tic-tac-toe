@@ -3,7 +3,7 @@ import React from "react";
 import Square from "./Square";
 import "./Board.css";
 
-function Board({ squares, onClick, winningCombination, winner }) {
+function Board({ squares, onClick, winningCombination, winner, className }) {
   return (
     <div className="board">
       {squares.map((square, i) => (
@@ -11,6 +11,7 @@ function Board({ squares, onClick, winningCombination, winner }) {
           key={i}
           winningCombination={winningCombination}
           winner={winner}
+          className={className}
           value={square}
           onClick={() => onClick(i)}
           index={i}
