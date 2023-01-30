@@ -52,7 +52,6 @@ function NewGameMenu(props) {
         </button>
         <button
           className="new-game-btn vsplayer"
-          disabled={disable}
           onClick={props.onDisplayMenuHandler}
         >
           New Game (vs player )
