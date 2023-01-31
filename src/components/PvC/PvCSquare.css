@@ -29,13 +29,13 @@
 }
 
 .square-o-turn:hover {
-  background-image: url(./assets/icon-o-outline.svg);
+  background-image: url(../assets/icon-o-outline.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .square-x-turn:hover {
-  background-image: url(./assets/icon-x-outline.svg);
+  background-image: url(../assets/icon-x-outline.svg);
   background-repeat: no-repeat;
   background-position: center;
 }

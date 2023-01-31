@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import PVPGame from './components/PvP/PvPGame';
-import NewGameMenu from './components/UI/NewGameMenu';
-import './App.css';
+import React, { useState } from "react";
+import PvPGame from "./components/PvP/PvPGame";
+import PvCGame from "./components/PvC/PvCGame";
+import NewGameMenu from "./components/UI/NewGameMenu";
+import "./App.css";
 
 function App() {
-  const [showMenu, setShowMenu] = React.useState(true);
-  const [playerOne, setPlayerOne] = useState('');
-  const [playerTwo, setPlayerTwo] = useState('');
+  const [showMenu, setShowMenu] = useState(true);
+  const [pvpGameStart, setPvpGameStart] = useState(false);
+  const [pvcGameStart, setPvcGameStart] = useState(false);
+  const [playerOne, setPlayerOne] = useState("");
+  const [playerTwo, setPlayerTwo] = useState("");
+  const [playerCpu, setPlayerCpu] = useState("");
 
   function setPlayerOneIcon(icon) {
     setPlayerOne(icon);
@@ -16,10 +20,26 @@ function App() {
     setPlayerTwo(icon);
   }
 
-  console.log('Player1:' + playerOne, 'Player2:' + playerTwo);
+  function setPlayerCpuIcon(icon) {
+    setPlayerCpu(icon);
+  }
+
+  console.log(
+    "Player1:" + playerOne,
+    "Player2:" + playerTwo,
+    "CPU:" + playerCpu
+  );
 
   function displayMenuHandler() {
     setShowMenu(!showMenu);
+  }
+
+  function startPvpGame() {
+    setPvpGameStart(!pvpGameStart);
+  }
+
+  function startPvcGame() {
+    setPvcGameStart(!pvcGameStart);
   }
 
   return (
@@ -29,12 +49,23 @@ function App() {
           onDisplayMenuHandler={displayMenuHandler}
           onSetPlayerOneIcon={setPlayerOneIcon}
           onSetPlayerTwoIcon={setPlayerTwoIcon}
+          onSetPlayerCpuIcon={setPlayerCpuIcon}
+          onStartPvpGame={startPvpGame}
+          onStartPvcGame={startPvcGame}
+          playerOne={playerOne}
+          playerTwo={playerTwo}
+          playerCpu={playerCpu}
+        />
+      )}
+      {!showMenu && pvpGameStart && (
+        <PvPGame
+          onShowMenu={setShowMenu}
           playerOne={playerOne}
           playerTwo={playerTwo}
         />
       )}
-      {!showMenu && (
-        <PVPGame
+      {!showMenu && pvcGameStart && (
+        <PvCGame
           onShowMenu={setShowMenu}
           playerOne={playerOne}
           playerTwo={playerTwo}

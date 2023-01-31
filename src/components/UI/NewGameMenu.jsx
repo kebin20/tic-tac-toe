@@ -20,6 +20,7 @@ function NewGameMenu(props) {
             onClick={() => {
               props.onSetPlayerOneIcon("X");
               props.onSetPlayerTwoIcon("O");
+              props.onSetPlayerCpuIcon("O");
               setDisable(true);
             }}
           >
@@ -31,6 +32,7 @@ function NewGameMenu(props) {
             onClick={() => {
               props.onSetPlayerOneIcon("O");
               props.onSetPlayerTwoIcon("X");
+              props.onSetPlayerCpuIcon("X");
               setDisable(true);
             }}
           >
@@ -42,18 +44,28 @@ function NewGameMenu(props) {
         )}
         {disable && (
           <p className="pick-mark-container__note">
-            Player 1 is {props.playerOne}, Player 2 is {props.playerTwo}
+            Player 1 is {props.playerOne}, Player 2/CPU is {props.playerTwo}
           </p>
         )}
       </div>
       <div className="new-game-btn-container">
-        <button className="new-game-btn vscpu" disabled>
+        <button
+          className="new-game-btn vscpu"
+          disabled={!disable}
+          onClick={() => {
+            props.onDisplayMenuHandler();
+            props.onStartPvcGame();
+          }}
+        >
           New Game (vs cpu)
         </button>
         <button
           className="new-game-btn vsplayer"
           disabled={!disable}
-          onClick={props.onDisplayMenuHandler}
+          onClick={() => {
+            props.onDisplayMenuHandler();
+            props.onStartPvpGame();
+          }}
         >
           New Game (vs player )
         </button>
