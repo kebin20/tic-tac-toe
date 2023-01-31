@@ -44,7 +44,7 @@ function NewGameMenu(props) {
         )}
         {disable && (
           <p className="pick-mark-container__note">
-            Player 1 is {props.playerOne}, Player 2/CPU is {props.playerTwo}
+            P1 is {props.playerOne}, P2/CPU is {props.playerTwo}
           </p>
         )}
       </div>
