@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import './RestartModal.css';
+import React from "react";
+import "./RestartModal.css";
 
-function PVPRestartModal(props) {
+function RestartModal(props) {
   return (
     <div className="backdrop">
       <div className="restart-modal">
@@ -20,4 +20,4 @@ function PVPRestartModal(props) {
   );
 }
 
-export default PVPRestartModal;
+export default RestartModal;
