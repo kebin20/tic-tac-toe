@@ -54,5 +54,6 @@
   .square-x-turn {
     width: 6.5em;
     height: 6.5em;
+    padding: 1.3em 1.3em 1.5em 1.5em;
   }
 }

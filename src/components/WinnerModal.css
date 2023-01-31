@@ -57,7 +57,7 @@
 }
 
 .tied-message {
-  font-family: "Outfit";
+  font-family: 'Outfit';
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
@@ -90,4 +90,11 @@
 .quit-button:hover {
   background: #dbe8ed;
   box-shadow: inset 0px -4px 0px #6b8997;
+}
+
+@media (max-width: 420px) {
+  .winner-o-icon-message,
+  .winner-x-icon-message {
+    font-size: 2rem;
+  }
 }
