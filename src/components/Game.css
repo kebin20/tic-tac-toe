@@ -42,3 +42,16 @@ header {
 .xo-icons {
   width: auto;
 }
+
+@media (max-width: 420px) {
+  header {
+    width: 80%;
+    margin: auto;
+  }
+
+  .score-display {
+    width: 80%;
+    margin: auto;
+    gap: 1em;
+  }
+}

@@ -1,5 +1,11 @@
 .board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  justify-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 420px) {
+  grid-template-columns: repeat(3, fit-content(6em));
 }

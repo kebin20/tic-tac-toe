@@ -47,3 +47,12 @@
 .winning-o-row {
   background-color: #f2b137;
 }
+
+@media (max-width: 420px) {
+  .square,
+  .square-o-turn,
+  .square-x-turn {
+    width: 6.5em;
+    height: 6.5em;
+  }
+}
