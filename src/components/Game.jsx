@@ -1,16 +1,17 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
-import { calculateWinner } from "../helper";
+import React, { useState, useEffect } from 'react';
+import { calculateWinner } from '../helper';
 /* assets */
-import grayXIcon from "./assets/icon-x-gray.svg";
-import grayOIcon from "./assets/icon-o-gray.svg";
-import logo from "./assets/logo.svg";
-import resetBtn from "./assets/icon-restart.svg";
+import grayXIcon from './assets/icon-x-gray.svg';
+import grayOIcon from './assets/icon-o-gray.svg';
+import logo from './assets/logo.svg';
+import resetBtn from './assets/icon-restart.svg';
 /* components */
-import Board from "./Board";
-import ScoreDisplay from "./ScoreDisplay";
-import WinnerModal from "./WinnerModal";
-import "./Game.css";
+import Board from './Board';
+import ScoreDisplay from './ScoreDisplay';
+import WinnerModal from './WinnerModal';
+import RestartModal from './RestartModal';
+import './Game.css';
 
 function Game(props) {
   const [squareValue, setSquareValue] = useState(Array(9).fill(null));
@@ -18,7 +19,7 @@ function Game(props) {
   const [xScore, setXScore] = useState(0);
   const [tieScore, setTieScore] = useState(0);
   const [oScore, setOScore] = useState(0);
-  const [restart, setRestart] = useState(false)
+  const [restart, setRestart] = useState(false);
 
   const { winner, winningCombination } = calculateWinner(squareValue);
 
@@ -29,12 +30,12 @@ function Game(props) {
     // If user click a filled in square or if game is won, return
     if (winner || squareValueCopy[i]) return;
     // Insert an O or an X into the square depending on the player
-    let value = "O";
+    let value = 'O';
     if (xIsNext) {
-      if (props.playerOne === "X" || props.playerTwo === "X") {
-        value = "X";
-      } else if (props.playerOne === "O" || props.playerTwo === "O") {
-        value = "O";
+      if (props.playerOne === 'X' || props.playerTwo === 'X') {
+        value = 'X';
+      } else if (props.playerOne === 'O' || props.playerTwo === 'O') {
+        value = 'O';
       }
     }
 
@@ -65,29 +66,21 @@ function Game(props) {
   //   );
   // }
 
-    // function resetGameButton() {
-  //   return (
-  //     <button
-  //       onClick={() =>
-  //         setSquareValue(
-  //           Array(9).fill(null),
-  //           setXScore(0),
-  //           setOScore(0),
-  //           setTieScore(0)
-  //         )
-  //       }
-  //       className="reset-button"
-  //     >
-  //       <img src={resetBtn} alt="reset button" />
-  //     </button>
-  //   );
-  // }
+  function resetGame() {
+    setSquareValue(
+      Array(9).fill(null),
+      setXScore(0),
+      setOScore(0),
+      setTieScore(0)
+    );
+    setRestart(false);
+  }
 
   useEffect(() => {
     if (winner) {
-      if (winner === "X") {
+      if (winner === 'X') {
         setXScore((score) => score + 1);
-      } else if (winner === "O") {
+      } else if (winner === 'O') {
         setOScore((score) => score + 1);
       }
     } else if (winner === null && !squareValue.includes(null)) {
@@ -115,11 +108,19 @@ function Game(props) {
                 <img src={grayXIcon} alt="gray X icon" className="xo-icons" />
               ) : (
                 <img src={grayOIcon} alt="gray O icon" className="xo-icons" />
-              )}{" "}
+              )}{' '}
               Turn
             </div>
           </div>
-          {resetGameButton()}
+          {restart && (
+            <RestartModal
+              onRestartGame={resetGame}
+              onCancel={() => setRestart(false)}
+            />
+          )}
+          <button onClick={() => setRestart(true)} className="reset-button">
+            <img src={resetBtn} alt="reset button" />
+          </button>
         </header>
         <Board
           winningCombination={winningCombination}

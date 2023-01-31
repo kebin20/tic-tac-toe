@@ -16,7 +16,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em;
+  padding: 3em;
+  gap: 2em;
 }
 
 .restart-message {
@@ -34,7 +35,6 @@
 .restart-modal-button-container {
   display: flex;
   gap: 1em;
-  padding: 1em;
 }
 
 .cancel-button {
