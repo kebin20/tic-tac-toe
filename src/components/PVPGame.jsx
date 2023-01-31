@@ -7,11 +7,11 @@ import grayOIcon from './assets/icon-o-gray.svg';
 import logo from './assets/logo.svg';
 import resetBtn from './assets/icon-restart.svg';
 /* components */
-import Board from './Board';
-import ScoreDisplay from './ScoreDisplay';
-import WinnerModal from './WinnerModal';
-import RestartModal from './RestartModal';
-import './Game.css';
+import PVPBoard from './PVPBoard';
+import PVPScoreDisplay from './PVPScoreDisplay';
+import PVPWinnerModal from './PVPWinnerModal';
+import PVPRestartModal from './PVPRestartModal';
+import './PVPGame.css';
 
 function Game(props) {
   const [squareValue, setSquareValue] = useState(Array(9).fill(null));
@@ -48,24 +48,6 @@ function Game(props) {
     setSquareValue(Array(9).fill(null));
   }
 
-  // function resetGameButton() {
-  //   return (
-  //     <button
-  //       onClick={() =>
-  //         setSquareValue(
-  //           Array(9).fill(null),
-  //           setXScore(0),
-  //           setOScore(0),
-  //           setTieScore(0)
-  //         )
-  //       }
-  //       className="reset-button"
-  //     >
-  //       <img src={resetBtn} alt="reset button" />
-  //     </button>
-  //   );
-  // }
-
   function resetGame() {
     setSquareValue(
       Array(9).fill(null),
@@ -96,7 +78,7 @@ function Game(props) {
           <div className="turn-display-container">
             <div className="turn-display">
               {winner || (winner === null && !squareValue.includes(null)) ? (
-                <WinnerModal
+                <PVPWinnerModal
                   onResetBoard={resetBoard}
                   winner={winner}
                   onShowMenu={props.onShowMenu}
@@ -113,7 +95,7 @@ function Game(props) {
             </div>
           </div>
           {restart && (
-            <RestartModal
+            <PVPRestartModal
               onRestartGame={resetGame}
               onCancel={() => setRestart(false)}
             />
@@ -122,7 +104,7 @@ function Game(props) {
             <img src={resetBtn} alt="reset button" />
           </button>
         </header>
-        <Board
+        <PVPBoard
           winningCombination={winningCombination}
           winner={winner}
           squares={squareValue}
@@ -131,7 +113,7 @@ function Game(props) {
           playerOne={props.playerOne}
           playerTwo={props.playerTwo}
         />
-        <ScoreDisplay
+        <PVPScoreDisplay
           xScore={xScore}
           tieScore={tieScore}
           oScore={oScore}
@@ -143,4 +125,4 @@ function Game(props) {
   );
 }
 
-export default Game;
+export default PVPGame;

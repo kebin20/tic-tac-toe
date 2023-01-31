@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import Square from "./Square";
-import "./Board.css";
+import Square from "./PVPSquare";
+import "./PVPBoard.css";
 
-function Board({ squares, onClick, winningCombination, winner, className, playerOne, playerTwo, xIsNext }) {
+function PVPBoard({ squares, onClick, winningCombination, winner, className, playerOne, playerTwo, xIsNext }) {
   return (
     <div className="board">
       {squares.map((square, i) => (
@@ -23,4 +23,4 @@ function Board({ squares, onClick, winningCombination, winner, className, player
     </div>
   );
 }
-export default Board;
+export default PVPBoard;
