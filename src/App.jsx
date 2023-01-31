@@ -12,6 +12,10 @@ function App() {
   const [playerTwo, setPlayerTwo] = useState("");
   const [playerCpu, setPlayerCpu] = useState("");
 
+  function refreshPage() {
+    window.location.reload(true);
+  }
+
   function setPlayerOneIcon(icon) {
     setPlayerOne(icon);
   }
@@ -60,6 +64,7 @@ function App() {
       {!showMenu && pvpGameStart && !pvcGameStart && (
         <PvPGame
           onShowMenu={setShowMenu}
+          onRefreshPage={refreshPage}
           playerOne={playerOne}
           playerTwo={playerTwo}
         />
@@ -67,6 +72,7 @@ function App() {
       {!showMenu && pvcGameStart && !pvpGameStart && (
         <PvCGame
           onShowMenu={setShowMenu}
+          onRefreshPage={refreshPage}
           playerOne={playerOne}
           playerTwo={playerTwo}
         />

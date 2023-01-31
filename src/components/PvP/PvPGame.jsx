@@ -82,6 +82,7 @@ function PvPGame(props) {
                   onResetBoard={resetBoard}
                   winner={winner}
                   onShowMenu={props.onShowMenu}
+                  onRefreshPage={props.onRefreshPage}
                   squareValue={squareValue}
                   playerOne={props.playerOne}
                   playerTwo={props.playerTwo}

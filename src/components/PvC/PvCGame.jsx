@@ -82,6 +82,7 @@ function PvCGame(props) {
                   onResetBoard={resetBoard}
                   winner={winner}
                   onShowMenu={props.onShowMenu}
+                  onRefreshPage={props.onRefreshPage}
                   squareValue={squareValue}
                   playerOne={props.playerOne}
                   playerCpu={props.playerCpu}
@@ -90,7 +91,7 @@ function PvCGame(props) {
                 <img src={grayXIcon} alt="gray X icon" className="xo-icons" />
               ) : (
                 <img src={grayOIcon} alt="gray O icon" className="xo-icons" />
-              )}{" "}
+              )}
               Turn
             </div>
           </div>
