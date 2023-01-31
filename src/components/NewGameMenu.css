@@ -117,4 +117,22 @@
   .welcome-menu-container {
     width: 85%;
   }
+
+  .logo-menu {
+    padding: 2.5em;
+  }
+
+  .pick-x-btn,
+  .pick-o-btn {
+    padding: 0.4em 1em;
+  }
+
+  .pick-mark-container__pick-player {
+    padding: 1.5em;
+  }
+
+  .pick-mark-container__note {
+    padding: 1.6em;
+    padding-bottom: 2em;
+  }
 }
