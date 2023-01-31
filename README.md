@@ -121,4 +121,6 @@ The solution for this was to include a conditional logic within the square compo
 
 useEffect hook was useful here to keep track of all the scores as I needed the scores to rerender upon finishing the game (which is when the state changes)
 
+https://upmostly.com/tutorials/how-to-refresh-a-page-or-component-in-react
+
 https://sebhastian.com/react-disable-button/
