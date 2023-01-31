@@ -1,0 +1,32 @@
+.score-display {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1.5em;
+}
+
+.score {
+  border-radius: 15px;
+  width: 9em;
+  height: 4.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.x-score {
+  background: #31c3bd;
+}
+
+.tie-score {
+  background: #a8bfc9;
+}
+
+.o-score {
+  background: #f2b137;
+}
