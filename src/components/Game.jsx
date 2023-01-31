@@ -18,6 +18,7 @@ function Game(props) {
   const [xScore, setXScore] = useState(0);
   const [tieScore, setTieScore] = useState(0);
   const [oScore, setOScore] = useState(0);
+  const [restart, setRestart] = useState(false)
 
   const { winner, winningCombination } = calculateWinner(squareValue);
 
@@ -46,23 +47,41 @@ function Game(props) {
     setSquareValue(Array(9).fill(null));
   }
 
-  function resetGameButton() {
-    return (
-      <button
-        onClick={() =>
-          setSquareValue(
-            Array(9).fill(null),
-            setXScore(0),
-            setOScore(0),
-            setTieScore(0)
-          )
-        }
-        className="reset-button"
-      >
-        <img src={resetBtn} alt="reset button" />
-      </button>
-    );
-  }
+  // function resetGameButton() {
+  //   return (
+  //     <button
+  //       onClick={() =>
+  //         setSquareValue(
+  //           Array(9).fill(null),
+  //           setXScore(0),
+  //           setOScore(0),
+  //           setTieScore(0)
+  //         )
+  //       }
+  //       className="reset-button"
+  //     >
+  //       <img src={resetBtn} alt="reset button" />
+  //     </button>
+  //   );
+  // }
+
+    // function resetGameButton() {
+  //   return (
+  //     <button
+  //       onClick={() =>
+  //         setSquareValue(
+  //           Array(9).fill(null),
+  //           setXScore(0),
+  //           setOScore(0),
+  //           setTieScore(0)
+  //         )
+  //       }
+  //       className="reset-button"
+  //     >
+  //       <img src={resetBtn} alt="reset button" />
+  //     </button>
+  //   );
+  // }
 
   useEffect(() => {
     if (winner) {
