@@ -57,14 +57,14 @@ function App() {
           playerCpu={playerCpu}
         />
       )}
-      {!showMenu && pvpGameStart && (
+      {!showMenu && pvpGameStart && !pvcGameStart && (
         <PvPGame
           onShowMenu={setShowMenu}
           playerOne={playerOne}
           playerTwo={playerTwo}
         />
       )}
-      {!showMenu && pvcGameStart && (
+      {!showMenu && pvcGameStart && !pvpGameStart && (
         <PvCGame
           onShowMenu={setShowMenu}
           playerOne={playerOne}
