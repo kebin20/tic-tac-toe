@@ -123,7 +123,8 @@
   }
 
   .pick-x-btn,
-  .pick-o-btn {
+  .pick-o-btn,
+  .disabled {
     padding: 0.4em 1em;
   }
 
