@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import Square from "./PVPSquare";
-import "./PVPBoard.css";
+import PvPSquare from "./PvPSquare";
+import "./PvPBoard.css";
 
-function PVPBoard({ squares, onClick, winningCombination, winner, className, playerOne, playerTwo, xIsNext }) {
+function PvPBoard({ squares, onClick, winningCombination, winner, className, playerOne, playerTwo, xIsNext }) {
   return (
     <div className="board">
       {squares.map((square, i) => (
-        <Square
+        <PvPSquare
           key={i}
           winningCombination={winningCombination}
           winner={winner}
@@ -23,4 +23,4 @@ function PVPBoard({ squares, onClick, winningCombination, winner, className, pla
     </div>
   );
 }
-export default PVPBoard;
+export default PvPBoard;

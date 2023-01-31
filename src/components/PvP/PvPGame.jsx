@@ -1,19 +1,19 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
-import { calculateWinner } from '../helper';
+import React, { useState, useEffect } from "react";
+import { calculateWinner } from "../../helper";
 /* assets */
-import grayXIcon from './assets/icon-x-gray.svg';
-import grayOIcon from './assets/icon-o-gray.svg';
-import logo from './assets/logo.svg';
-import resetBtn from './assets/icon-restart.svg';
+import grayXIcon from "../assets/icon-x-gray.svg";
+import grayOIcon from "../assets//icon-o-gray.svg";
+import logo from "../assets/logo.svg";
+import resetBtn from "../assets/icon-restart.svg";
 /* components */
-import PVPBoard from './PVPBoard';
-import PVPScoreDisplay from './PVPScoreDisplay';
-import PVPWinnerModal from './PVPWinnerModal';
-import PVPRestartModal from './PVPRestartModal';
-import './PVPGame.css';
+import PvPBoard from "./PvPBoard";
+import PvPScoreDisplay from "./PvPScoreDisplay";
+import PvPWinnerModal from "./PvPWinnerModal";
+import RestartModal from "../UI/RestartModal";
+import "./PvPGame.css";
 
-function Game(props) {
+function PvPGame(props) {
   const [squareValue, setSquareValue] = useState(Array(9).fill(null));
   const [xIsNext, setXisNext] = useState(true);
   const [xScore, setXScore] = useState(0);
@@ -30,12 +30,12 @@ function Game(props) {
     // If user click a filled in square or if game is won, return
     if (winner || squareValueCopy[i]) return;
     // Insert an O or an X into the square depending on the player
-    let value = 'O';
+    let value = "O";
     if (xIsNext) {
-      if (props.playerOne === 'X' || props.playerTwo === 'X') {
-        value = 'X';
-      } else if (props.playerOne === 'O' || props.playerTwo === 'O') {
-        value = 'O';
+      if (props.playerOne === "X" || props.playerTwo === "X") {
+        value = "X";
+      } else if (props.playerOne === "O" || props.playerTwo === "O") {
+        value = "O";
       }
     }
 
@@ -60,9 +60,9 @@ function Game(props) {
 
   useEffect(() => {
     if (winner) {
-      if (winner === 'X') {
+      if (winner === "X") {
         setXScore((score) => score + 1);
-      } else if (winner === 'O') {
+      } else if (winner === "O") {
         setOScore((score) => score + 1);
       }
     } else if (winner === null && !squareValue.includes(null)) {
@@ -78,7 +78,7 @@ function Game(props) {
           <div className="turn-display-container">
             <div className="turn-display">
               {winner || (winner === null && !squareValue.includes(null)) ? (
-                <PVPWinnerModal
+                <PvPWinnerModal
                   onResetBoard={resetBoard}
                   winner={winner}
                   onShowMenu={props.onShowMenu}
@@ -90,12 +90,12 @@ function Game(props) {
                 <img src={grayXIcon} alt="gray X icon" className="xo-icons" />
               ) : (
                 <img src={grayOIcon} alt="gray O icon" className="xo-icons" />
-              )}{' '}
+              )}{" "}
               Turn
             </div>
           </div>
           {restart && (
-            <PVPRestartModal
+            <RestartModal
               onRestartGame={resetGame}
               onCancel={() => setRestart(false)}
             />
@@ -104,7 +104,7 @@ function Game(props) {
             <img src={resetBtn} alt="reset button" />
           </button>
         </header>
-        <PVPBoard
+        <PvPBoard
           winningCombination={winningCombination}
           winner={winner}
           squares={squareValue}
@@ -113,7 +113,7 @@ function Game(props) {
           playerOne={props.playerOne}
           playerTwo={props.playerTwo}
         />
-        <PVPScoreDisplay
+        <PvPScoreDisplay
           xScore={xScore}
           tieScore={tieScore}
           oScore={oScore}
@@ -125,4 +125,4 @@ function Game(props) {
   );
 }
 
-export default PVPGame;
+export default PvPGame;

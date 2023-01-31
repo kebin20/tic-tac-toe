@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Game from './components/Game';
-import NewGameMenu from './components/NewGameMenu';
+import PVPGame from './components/PvP/PvPGame';
+import NewGameMenu from './components/UI/NewGameMenu';
 import './App.css';
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
         />
       )}
       {!showMenu && (
-        <Game
+        <PVPGame
           onShowMenu={setShowMenu}
           playerOne={playerOne}
           playerTwo={playerTwo}

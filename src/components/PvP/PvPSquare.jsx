@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import "./Square.css";
-import xIcon from "./assets/icon-x.svg";
-import oIcon from "./assets/icon-o.svg";
-import xTransparent from "./assets/icon-x-transparent.svg";
-import oTransparent from "./assets/icon-o-transparent.svg";
+import "./PvPSquare.css";
+import xIcon from "../assets/icon-x.svg";
+import oIcon from "../assets/icon-o.svg";
+import xTransparent from "../assets/icon-x-transparent.svg";
+import oTransparent from "../assets/icon-o-transparent.svg";
 
-function Square({
+function PvPSquare({
   value,
   onClick,
   winningCombination,
@@ -54,7 +54,7 @@ function Square({
   );
 }
 
-export default Square;
+export default PvPSquare;
 
 // If winning combination equals to "X", change className to winning-x-row, else if winning combination equals to "O", change className to winning-o-row, else use className square
 

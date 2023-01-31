@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import './ScoreDisplay.css';
+import './PvPScoreDisplay.css';
 
-function ScoreDisplay(props) {
+function PvPScoreDisplay(props) {
   return (
     <div className="score-display">
       <div className="x-score score">
@@ -21,4 +21,4 @@ function ScoreDisplay(props) {
   );
 }
 
-export default ScoreDisplay;
+export default PvPScoreDisplay;
