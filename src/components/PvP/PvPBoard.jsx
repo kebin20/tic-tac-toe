@@ -3,10 +3,10 @@ import React from "react";
 import PvPSquare from "./PvPSquare";
 import "./PvPBoard.css";
 
-function PvPBoard({ squares, onClick, winningCombination, winner, className, playerOne, playerTwo, xIsNext }) {
+function PvPBoard({ board, onClick, winningCombination, winner, className, playerOne, playerTwo, xIsNext }) {
   return (
     <div className="board">
-      {squares.map((square, i) => (
+      {board.map((square, i) => (
         <PvPSquare
           key={i}
           winningCombination={winningCombination}

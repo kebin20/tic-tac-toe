@@ -25,6 +25,20 @@ function PvCGame(props) {
 
   console.log(squareValue);
 
+  // let availableSpaces = data.board.filter(
+  //       (space) => space !== "X" && space !== "O"
+  //     );
+  //     let move =
+  //       availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
+  //     data.board[move] = data.player2;
+    
+  //     setTimeout(() => {
+  //       let box = document.getElementById(`${move}`);
+  //       box.textContent = data.player2;
+  //       box.classList.add(data.currentPlayer === "X" ? "player1" : "player2");
+  //     }, 200);
+
+
   function handleClick(i) {
     const squareValueCopy = [...squareValue];
     // If user click a filled in square or if game is won, return

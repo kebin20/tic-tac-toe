@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import "./PvPSquare.css";
-import xIcon from "../assets/icon-x.svg";
-import oIcon from "../assets/icon-o.svg";
-import xTransparent from "../assets/icon-x-transparent.svg";
-import oTransparent from "../assets/icon-o-transparent.svg";
+import React from 'react';
+import './PvPSquare.css';
+import xIcon from '../assets/icon-x.svg';
+import oIcon from '../assets/icon-o.svg';
+import xTransparent from '../assets/icon-x-transparent.svg';
+import oTransparent from '../assets/icon-o-transparent.svg';
 
 function PvPSquare({
   value,
@@ -16,38 +16,38 @@ function PvPSquare({
   playerTwo,
   xIsNext,
 }) {
-  let squareClass = "square-o-turn";
+  let squareClass = 'square-o-turn';
 
   if (winningCombination) {
     if (winningCombination.includes(index)) {
-      if (value === "X") {
-        squareClass = "winning-x-row square";
+      if (value === 'X') {
+        squareClass = 'winning-x-row square';
       } else {
-        squareClass = "winning-o-row square";
+        squareClass = 'winning-o-row square';
       }
     }
   } else if (xIsNext) {
-    if (playerOne === "X" || playerTwo === "X") {
-      squareClass = "square-x-turn";
-    } else if (playerOne === "O" || playerTwo === "O") {
-      squareClass = "square-o-turn";
+    if (playerOne === 'X' || playerTwo === 'X') {
+      squareClass = 'square-x-turn';
+    } else if (playerOne === 'O' || playerTwo === 'O') {
+      squareClass = 'square-o-turn';
     }
   }
 
   return (
     <button
-      className={value ? "square" : squareClass}
+      className={value ? 'square' : squareClass}
       onClick={value ? null : onClick}
     >
       {winner && winningCombination.includes(index) ? (
-        value === "X" ? (
+        value === 'X' ? (
           <img src={xTransparent} alt="X transparent icon" />
         ) : (
           <img src={oTransparent} alt="O transparent icon" />
         )
-      ) : value === "X" ? (
+      ) : value === 'X' ? (
         <img src={xIcon} alt="X icon" />
-      ) : value === "O" ? (
+      ) : value === 'O' ? (
         <img src={oIcon} alt="O icon" />
       ) : null}
     </button>
