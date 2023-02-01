@@ -25,12 +25,12 @@ function PvCGame(props) {
 
   console.log(squareValue);
 
-  // let availableSpaces = data.board.filter(
+  // let availableSpaces = board.filter(
   //       (space) => space !== "X" && space !== "O"
   //     );
   //     let move =
   //       availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
-  //     data.board[move] = data.player2;
+  //     board[move] = playerCpu;
     
   //     setTimeout(() => {
   //       let box = document.getElementById(`${move}`);
