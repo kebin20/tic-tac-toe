@@ -23,8 +23,6 @@ function PvPGame(props) {
 
   const { winner, winningCombination } = calculateWinner(board);
 
-  console.log(board);
-
   function handleClick(i) {
     const boardCopy = [...board];
     // If user click a filled in square or if game is won, return
