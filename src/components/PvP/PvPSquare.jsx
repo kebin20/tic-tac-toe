@@ -36,7 +36,7 @@ function PvPSquare({
 
   return (
     <button
-      className={value ? 'square' : squareClass}
+      className={value && !winningCombination ? 'square'  : squareClass}
       onClick={value ? null : onClick}
     >
       {winner && winningCombination.includes(index) ? (
