@@ -15,6 +15,7 @@ import './PvCGame.css';
 
 function PvCGame(props) {
   const [board, setBoard] = useState(Array(9).fill(null));
+  const [cpuPlay, setCpuPlay] = useState();
   const [xIsNext, setXisNext] = useState(true);
   const [xScore, setXScore] = useState(0);
   const [tieScore, setTieScore] = useState(0);
@@ -24,21 +25,12 @@ function PvCGame(props) {
   const { winner, winningCombination } = calculateWinner(board);
 
   console.log(board);
+  
 
-  function computerPlay() {
-    let availableSpaces = board.filter(
-      (space) => space !== 'X' && space !== 'O'
-    );
-    let move =
-      availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
-    board[move] = playerCpu;
-  }
-
-  //     setTimeout(() => {
-  //       let box = document.getElementById(`${move}`);
-  //       box.textContent = data.player2;
-  //       box.classList.add(data.currentPlayer === "X" ? "player1" : "player2");
-  //     }, 200);
+  // let availableSpaces = board.filter((space) => space !== 'X' && space !== 'O');
+  // let move =
+  //   availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
+  // setCpuPlay(board[move]);
 
   function handleClick(i) {
     const boardCopy = [...board];
@@ -48,9 +40,18 @@ function PvCGame(props) {
     let value = 'O';
     if (xIsNext) {
       if (props.playerOne === 'X' || props.playerCpu === 'X') {
-        value = 'X';
-      } else if (props.playerOne === 'O' || props.playerCpu === 'O') {
-        value = 'O';
+        if (props.playerOne === 'X') {
+          value = 'X';
+        } else if (props.playerCpu === 'X') {
+          cpuPlay;
+        }
+        if (props.playerOne === 'O' || props.playerCpu === 'O') {
+          if (props.playerOne === 'O') {
+            value = 'O';
+          } else if (props.playerCpu === 'O') {
+            cpuPlay
+          }
+        }
       }
     }
     boardCopy[i] = value;
@@ -63,12 +64,7 @@ function PvCGame(props) {
   }
 
   function resetGame() {
-    setBoard(
-      Array(9).fill(null),
-      setXScore(0),
-      setOScore(0),
-      setTieScore(0)
-    );
+    setBoard(Array(9).fill(null), setXScore(0), setOScore(0), setTieScore(0));
     setRestart(false);
   }
 
