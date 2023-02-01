@@ -17,21 +17,21 @@ function PvCWinnerModal(props) {
             ? 'CPU Wins!'
             : props.winner === 'O' && props.playerCpu === 'O'
             ? 'CPU Wins!'
-            : props.winner === null && !props.squareValue.includes(null)
+            : props.winner === null && !props.board.includes(null)
             ? ''
-            : ""}
+            : ''}
         </p>
         <div className="show-winner-icon-container">
           {props.winner === 'X' ? (
             <img src={xIcon} alt="" className="winner-icon" />
           ) : props.winner === 'O' ? (
             <img src={oIcon} alt="" className="winner-icon" />
-          ) : props.winner === null && !props.squareValue.includes(null) ? (
+          ) : props.winner === null && !props.board.includes(null) ? (
             ''
           ) : (
             {}
           )}
-          {props.winner === null && !props.squareValue.includes(null) ? (
+          {props.winner === null && !props.board.includes(null) ? (
             <p className="tied-message">round tied</p>
           ) : (
             <p
