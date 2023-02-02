@@ -14,7 +14,6 @@ function PvCSquare({
   winner,
   playerOne,
   playerCpu,
-  xIsNext,
 }) {
   let squareClass = "square-o-turn";
 
@@ -26,7 +25,7 @@ function PvCSquare({
         squareClass = "winning-o-row square";
       }
     }
-  } else if (xIsNext) {
+  } else {
     if (playerOne === "X" || playerCpu === "X") {
       squareClass = "square-x-turn";
     } else if (playerOne === "O" || playerCpu === "O") {

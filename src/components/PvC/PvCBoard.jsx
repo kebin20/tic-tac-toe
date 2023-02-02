@@ -3,7 +3,7 @@ import React from "react";
 import PvCSquare from "./PvCSquare";
 import "./PvCBoard.css";
 
-function PvCBoard({ board, onClick, winningCombination, winner, className, playerOne, playerCpu, xIsNext }) {
+function PvCBoard({ board, onClick, winningCombination, winner, className, playerOne, playerCpu}) {
   return (
     <div className="board">
       {board.map((square, i) => (
@@ -11,7 +11,6 @@ function PvCBoard({ board, onClick, winningCombination, winner, className, playe
           key={i}
           winningCombination={winningCombination}
           winner={winner}
-          xIsNext={xIsNext}
           playerOne={playerOne}
           playerCpu={playerCpu}
           className={className}

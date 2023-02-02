@@ -28,12 +28,6 @@ function App() {
     setPlayerCpu(icon);
   }
 
-  console.log(
-    "Player1:" + playerOne,
-    "Player2:" + playerTwo,
-    "CPU:" + playerCpu
-  );
-
   function displayMenuHandler() {
     setShowMenu(!showMenu);
   }
