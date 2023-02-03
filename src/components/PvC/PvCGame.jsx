@@ -15,7 +15,6 @@ import "./PvCGame.css";
 
 function PvCGame(props) {
   const [board, setBoard] = useState(Array(9).fill(null));
-  const [xIsNext, setXisNext] = useState(true);
   const [xScore, setXScore] = useState(0);
   const [tieScore, setTieScore] = useState(0);
   const [oScore, setOScore] = useState(0);
@@ -78,7 +77,6 @@ function PvCGame(props) {
 
     computerPlay(boardCopy, cpuValue);
     setBoard(boardCopy);
-    setXisNext(!xIsNext);
   }
 
   function resetBoard() {
