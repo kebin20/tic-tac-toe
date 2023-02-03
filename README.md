@@ -15,6 +15,7 @@ This is a solution to the [Tic Tac Toe challenge on Frontend Mentor](https://www
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -24,7 +25,7 @@ Users should be able to:
 
 - View the optimal layout for the game depending on their device's screen size
 - See hover states for all interactive elements on the page
-- Play the game either solo vs the computer (WIP) or multiplayer against another person
+- Play the game either solo vs the computer or multiplayer against another person
 - **Bonus 1**: Save the game state in the browser so that it’s preserved if the player refreshes their browser
 - **Bonus 2**: Instead of having the computer randomly make their moves, try making it clever so it’s proactive in blocking your moves and trying to win
 
@@ -172,7 +173,9 @@ WIP: I still need to work out how a player can play against a CPU.
 
 - Frontend Mentor - [@kebin20](https://www.frontendmentor.io/profile/yourusername)
 
+## Acknowledgments
 
+Thank you to my friend Peter who helped me point out the problems within my Player vs CPU logic! 
 
 
 

@@ -58,7 +58,6 @@ function PvCGame(props) {
     let value = "O";
     let cpuValue = "O";
 
-
       if (props.playerOne === "X") {
         value = "X";
       } else if (props.playerCpu === "X") {
