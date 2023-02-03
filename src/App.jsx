@@ -68,7 +68,7 @@ function App() {
           onShowMenu={setShowMenu}
           onRefreshPage={refreshPage}
           playerOne={playerOne}
-          playerTwo={playerTwo}
+          playerCpu={playerCpu}
         />
       )}
     </div>

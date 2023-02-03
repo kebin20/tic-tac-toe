@@ -21,21 +21,21 @@ function PvCSquare({
     if (winningCombination.includes(index)) {
       if (value === "X") {
         squareClass = "winning-x-row square";
-      } else {
+      } else if (value === "O") {
         squareClass = "winning-o-row square";
       }
     }
   } else {
-    if (playerOne === "X" || playerCpu === "X") {
+    if (playerOne === "X" && playerCpu === "O") {
       squareClass = "square-x-turn";
-    } else if (playerOne === "O" || playerCpu === "O") {
+    } else if (playerOne === "O" && playerCpu === "X") {
       squareClass = "square-o-turn";
     }
   }
 
   return (
     <button
-      className={value ? "square" : squareClass}
+      className={value && !winningCombination ? "square" : squareClass}
       onClick={value ? null : onClick}
     >
       {winner && winningCombination.includes(index) ? (

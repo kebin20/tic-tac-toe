@@ -15,6 +15,7 @@ import "./PvCGame.css";
 
 function PvCGame(props) {
   const [board, setBoard] = useState(Array(9).fill(null));
+  const [xIsNext, setXisNext] = useState(true);
   const [xScore, setXScore] = useState(0);
   const [tieScore, setTieScore] = useState(0);
   const [oScore, setOScore] = useState(0);
@@ -25,20 +26,23 @@ function PvCGame(props) {
   // console.log(board);
 
   function computerPlay(localBoard, icon) {
-    const availableSpaces = localBoard.filter(
-      (space) => space !== "X" && space !== "O"
-    );
-    console.log(availableSpaces);
-    const move =
-      availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
-    // const availableIndices = [];
-    // localBoard.forEach((space, index) => {
-    //   if (space !== "X" && space !== "O") {
-    //     availableIndices.push(index);
-    //   }
-    // });
+    // const availableSpaces = localBoard.filter(
+    //   (space) => space !== "X" && space !== "O"
+    // );
+    // console.log(availableSpaces);
+
     // const move =
-    //   availableIndices[Math.floor(Math.random() * availableIndices.length)];
+    //   availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
+
+    const availableIndices = [];
+    localBoard.forEach((space, index) => {
+      if (space !== "X" && space !== "O") {
+        return availableIndices.push(index);
+      }
+    });
+
+    const move =
+      availableIndices[Math.floor(Math.random() * availableIndices.length)];
 
     // Need computer to now insert it's assigned icon into the available space
     localBoard[move] = icon;
@@ -50,30 +54,32 @@ function PvCGame(props) {
     if (winner || boardCopy[i]) return;
     // Insert an O or an X into the square depending on the player
 
-    const cpuValue = props.playerOne === "X" ? "O" : "X";
+    // const cpuValue = props.playerOne === "X" ? "O" : "X";
 
-    // let value = "O";
-    // let cpuValue = "O";
+    let value = "O";
+    let cpuValue = "O";
 
-    // if (props.playerOne === "X" || props.playerCpu === "X") {
-    //   if (props.playerOne === "X") {
-    //     value = "X";
-    //   } else if (props.playerCpu === "X") {
-    //     cpuValue = "X";
-    //   }
-    //   if (props.playerOne === "O" || props.playerCpu === "O") {
-    //     if (props.playerOne === "O") {
-    //       value = "O";
-    //     } else if (props.playerCpu === "O") {
-    //       cpuValue = "O";
-    //     }
-    //   }
-    // }
+    if (props.playerOne === "X" || props.playerCpu === "X") {
+      if (props.playerOne === "X") {
+        value = "X";
+      } else if (props.playerCpu === "X") {
+        cpuValue = "X";
+      }
+      if (props.playerOne === "O" || props.playerCpu === "O") {
+        if (props.playerOne === "O") {
+          value = "O";
+        } else if (props.playerCpu === "O") {
+          cpuValue = "O";
+        }
+      }
+    }
 
-    // boardCopy[i] = value;
-    boardCopy[i] = props.playerOne;
+    boardCopy[i] = value;
+    // boardCopy[i] = props.playerOne;
+
     computerPlay(boardCopy, cpuValue);
     setBoard(boardCopy);
+    setXisNext(!xIsNext);
   }
 
   function resetBoard() {
@@ -114,7 +120,7 @@ function PvCGame(props) {
                   playerOne={props.playerOne}
                   playerCpu={props.playerCpu}
                 />
-              ) : props.playerOne === "X" || computerPlay() ? (
+              ) : props.playerOne === "X" ? (
                 <img src={grayXIcon} alt="gray X icon" className="xo-icons" />
               ) : (
                 <img src={grayOIcon} alt="gray O icon" className="xo-icons" />
