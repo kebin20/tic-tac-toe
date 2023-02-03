@@ -54,15 +54,3 @@ function PvCSquare({
 }
 
 export default PvCSquare;
-
-// If winning combination equals to "X", change className to winning-x-row, else if winning combination equals to "O", change className to winning-o-row, else use className square
-
-// if (winningCombination) {
-//   if (winningCombination.includes("X")) {
-//     return "winning-x-row"
-//   } else if (winningCombination.includes("O")) {
-//     return "winning-o-row"
-//   }
-// }
-//  return "square"
-// }

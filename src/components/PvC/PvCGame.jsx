@@ -22,17 +22,7 @@ function PvCGame(props) {
 
   const { winner, winningCombination } = calculateWinner(board);
 
-  // console.log(board);
-
   function computerPlay(localBoard, icon) {
-    // const availableSpaces = localBoard.filter(
-    //   (space) => space !== "X" && space !== "O"
-    // );
-    // console.log(availableSpaces);
-
-    // const move =
-    //   availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
-
     const availableIndices = [];
     localBoard.forEach((space, index) => {
       if (space !== "X" && space !== "O") {
@@ -53,27 +43,22 @@ function PvCGame(props) {
     if (winner || boardCopy[i]) return;
     // Insert an O or an X into the square depending on the player
 
-    // const cpuValue = props.playerOne === "X" ? "O" : "X";
-
     let value = "O";
     let cpuValue = "O";
 
-      if (props.playerOne === "X") {
-        value = "X";
-      } else if (props.playerCpu === "X") {
-        cpuValue = "X";
-      }
+    if (props.playerOne === "X") {
+      value = "X";
+    } else if (props.playerCpu === "X") {
+      cpuValue = "X";
+    }
 
-        if (props.playerOne === "O") {
-          value = "O";
-        } else if (props.playerCpu === "O") {
-          cpuValue = "O";
-        }
-
+    if (props.playerOne === "O") {
+      value = "O";
+    } else if (props.playerCpu === "O") {
+      cpuValue = "O";
+    }
 
     boardCopy[i] = value;
-    // boardCopy[i] = props.playerOne;
-
     computerPlay(boardCopy, cpuValue);
     setBoard(boardCopy);
   }

@@ -52,7 +52,6 @@ function NewGameMenu(props) {
         <button
           className="new-game-btn vscpu"
           disabled={!disable}
-          // disabled
           onClick={() => {
             props.onDisplayMenuHandler();
             props.onStartPvcGame();
