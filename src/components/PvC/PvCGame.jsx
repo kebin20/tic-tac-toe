@@ -59,20 +59,19 @@ function PvCGame(props) {
     let value = "O";
     let cpuValue = "O";
 
-    if (props.playerOne === "X" || props.playerCpu === "X") {
+
       if (props.playerOne === "X") {
         value = "X";
       } else if (props.playerCpu === "X") {
         cpuValue = "X";
       }
-      if (props.playerOne === "O" || props.playerCpu === "O") {
+
         if (props.playerOne === "O") {
           value = "O";
         } else if (props.playerCpu === "O") {
           cpuValue = "O";
         }
-      }
-    }
+
 
     boardCopy[i] = value;
     // boardCopy[i] = props.playerOne;
