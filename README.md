@@ -154,8 +154,6 @@ I think with this project, I should be able to refactor code start using useCont
 
 I also want to try out styled components to see if it would be more efficient for styling.
 
-WIP: I still need to work out how a player can play against a CPU.
-
 ### Useful resources
 
 - [Scrimba](https://scrimba.com/learn/reactgame) - This tutorial by Thomas Weibenfalk via Scrimba, helped me in making the core gameplay of Tic Tac Toe.
