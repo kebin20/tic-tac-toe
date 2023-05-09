@@ -41,7 +41,7 @@ function App() {
   }
 
   return (
-    <div className="centered-container">
+    <main className="centered-container">
       {showMenu && (
         <NewGameMenu
           onDisplayMenuHandler={displayMenuHandler}
@@ -71,7 +71,7 @@ function App() {
           playerCpu={playerCpu}
         />
       )}
-    </div>
+    </main>
   );
 }
 
